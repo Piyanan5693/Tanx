@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playermovement : MonoBehaviour {
+public class playermovement : MonoBehaviour
+{
 
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
@@ -33,11 +34,6 @@ public class playermovement : MonoBehaviour {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
 
-        // if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //TakeDamage(20);
-        // print("hit");
-        //}
     }
 
     
@@ -52,14 +48,8 @@ public class playermovement : MonoBehaviour {
 
 
 
-    //  void heal (int heal)
-    // {
-    //currentHealth += heal;
-    // if (currentHealth > 0) heal = maxHealth;
 
-    //}
-
-    void TakeDamage(int damage)
+    void TakeDamage(int damage)  
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);

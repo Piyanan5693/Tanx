@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour 
+public class Bullet : MonoBehaviour  // bullet ตอนplayer คลิกยิง
 {
     public GameObject hitEffect; 
 	// Use this for initialization
@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)   // เอเฟคระเบิดเมื่อโดนcollider อื่น
     {
        
-            GameObject effect =  Instantiate(hitEffect, transform.position, Quaternion.identity);
+            GameObject effect =  Instantiate(hitEffect, transform.position, Quaternion.identity); // gameobject = hitEffect 
         Destroy(effect, 5f);
 
         Destroy(gameObject);
@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)  //เอเฟคระเบิดเมื่อโดนcollider enemy
     {
-        if(other.tag == "Enemy")
+        if(other.tag == "Enemy") // เมื่อชนกับtag enemy score +1 และแสดงeffect แล้วทำลายทิ้ง
         {
             Score.scoreValue += 1;
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
 
             Destroy(other.gameObject);
         }
-        if (other.tag == "BomberBot")
+        if (other.tag == "BomberBot") // เมื่อชนกับtag bommerbot score +1 และแสดงeffect แล้วทำลายทิ้ง
         {
             Score.scoreValue += 1;
             GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
